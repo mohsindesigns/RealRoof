@@ -17,7 +17,8 @@ async function main() {
     const content = await contentColl.findOne({ key: 'complete_data' });
     if (content && content.data) {
       console.log("Global keys:", Object.keys(content.data));
-      console.log("Global hero:", content.data.hero);
+      console.log("Services keys:", Object.keys(content.data.services || {}));
+      console.log("Services blogSection:", content.data.services?.blogSection);
     } else {
       console.log("No complete_data found");
     }
